@@ -1,5 +1,6 @@
 
 
+
 const token = localStorage.getItem('token');
 
 let currentPage = 1;
@@ -7,7 +8,7 @@ let currentPage = 1;
 let limit = parseInt(localStorage.getItem('expensesPerPage')) || 5;
 let count=0;
 let updateId=null;
-axios.get('http://localhost:3111/api/userDetails', {
+axios.get('https://spendwise-livepoint.onrender.com/api/userDetails', {
   headers: {
     Authorization: `Bearer ${token}`
   }
@@ -121,7 +122,7 @@ function handleSubmit(event) {
   const obj = { description, amount, category };
 
 if (updateId) {
-  axios.put(`http://localhost:3111/api/userDetailsUpdate/${updateId}`, obj, {
+  axios.put(`https://spendwise-livepoint.onrender.com/api/userDetailsUpdate/${updateId}`, obj, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -145,7 +146,7 @@ if (updateId) {
 }
  else {
     // POST request for new entry
-    axios.post('http://localhost:3111/api/userDetails', obj, {
+    axios.post('https://spendwise-livepoint.onrender.com/api/userDetails', obj, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -198,7 +199,7 @@ tbody.addEventListener('click', (event) => {
     
     const id = row.dataset.expenseId;
   
-    axios.delete(`http://localhost:3111/api/userDetails/${id}`, {
+    axios.delete(`https://spendwise-livepoint.onrender.com/api/userDetails/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -239,7 +240,7 @@ tbody.addEventListener('click', (event) => {
 });
 
 function displayLeaderboard() {
-  axios.get('http://localhost:3111/api/usersTotalsum')
+  axios.get('https://spendwise-livepoint.onrender.com/api/usersTotalsum')
     .then((result) => {
       const Leaderboard = document.getElementById('Leaderboard');
       Leaderboard.innerHTML=''
@@ -275,7 +276,7 @@ LeaderboardBtn.addEventListener('click', () => {
 
 
 document.getElementById('download-csv-btn').addEventListener('click', () => {
-  axios.get('http://localhost:3111/api/userDetails/download', {
+  axios.get('https://spendwise-livepoint.onrender.com/api/userDetails/download', {
     headers: {
       Authorization: `Bearer ${token}`
     },
