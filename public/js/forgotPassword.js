@@ -15,7 +15,7 @@ function solveforgotPassword(event) {
   event.target.emailId.disabled = true;
 
   // Send the request to the backend (forgot password endpoint)
-  axios.post('http://localhost:3111/api/forgotpassword', obj)
+  axios.post('https://spendwise-livepoint.onrender.com/api/forgotpassword', obj)
       .then((result) => {
           console.log("Success:", result.data);
           alert("Password reset email has been sent! Please check your inbox.");
