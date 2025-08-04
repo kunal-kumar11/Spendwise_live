@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+  <h1>Login</h1>
+  <form onsubmit="loginSubmit(event)" method="post">
+    <label for="useremaillogin">
+      Email:
+      <input type="email" name="useremaillogin" id="useremaillogin" required>
+    </label>
+    <br><br>
+
+    <label for="userpasswordlogin">
+      Password:
+      <input type="password" name="userpasswordlogin" id="userpasswordlogin" required>
+    </label>
+    <br><br>
+
+    <button type="submit">Login</button>
+  </form>
+  <p>Forgot Password <a href="/forgotpassword">Click here</a></p>
+  <p>Don't have an account? <a href="/">Signup here</a></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.8.4/dist/axios.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="./js/login.js"></script>
+</body>
+</html>

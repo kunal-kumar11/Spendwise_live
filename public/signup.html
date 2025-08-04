@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpendWise Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/signup.css">
+  </head>
+  <body>
+    <h1>SpendWise</h1>
+    <form onsubmit="solve(event)" method="post">
+      <label>
+        User Name:
+        <input type="text" name="username" required />
+      </label>
+
+      <label>
+        Email:
+        <input type="email" name="useremail" required />
+      </label>
+
+      <label>
+        Password:
+      
+        <input type="password" name="userpassword" id="userpassword" required />
+      </label>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+ <p>Already have an account? <a href="/login">Login here</a></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.8.4/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/signup.js"></script>
+  </body>
+</html>

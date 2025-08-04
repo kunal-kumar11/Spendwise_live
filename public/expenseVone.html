@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpendWise Tracker</title>
+    <link rel="stylesheet" href="./css/expenseVone.css" />
+  </head>
+  
+  <body>
+    <h1>SpendWise</h1>
+    <button id="logout-btn">Logout</button>
+
+    <form id="expense-form" onsubmit="handleSubmit(event)" method="post">
+      <input type="text" id="description" placeholder="Description" name="description" required />
+      <input type="number" id="amount" placeholder="Amount" name="amount" />
+      <select id="category" name="category">
+        <option value="Other">Other</option>
+        <option value="Travel">Travel</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Shopping">Shopping</option>
+      </select>
+      <button type="submit">Add Expense</button>
+    </form>
+
+    <table id="expense-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+
+    <div id="pagination-controls">
+
+      <div id="change_page">
+        <button id="prev-btn" onclick="changePage('prev')">Previous</button>
+        <span id="current-page">Page 1</span>
+        <button id="next-btn" onclick="changePage('next')">Next</button>
+      </div>
+
+      <label for="rows-per-page">Rows per page:</label>
+      <select id="rows-per-page" onchange="updateRowPerPage()">
+        <option value="5" selected>5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+
+    <h3>
+    <button onclick="orderfunction(event)" id="buyPremium">Buy Premium</button>
+    </h3> 
+    <button id="download-csv-btn" hidden>Download CSV</button>
+    <ul id="Leaderboard"></ul>
+    <button hidden id="LeaderboardBtn">Show Leaderboard</button>
+
+    <!-- ✅ Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="./js/orders.js"></script>
+    <script src="./js/expenseVone.js"></script>
+
+ <script>
+  document.getElementById('logout-btn').addEventListener('click', () => {
+    axios.get('/logout', { withCredentials: true })  // send session cookie
+      .then(() => {
+        localStorage.clear(); // clear JWT token or any saved data
+        alert('You have been logged out.');
+        window.location.href = '/login';
+      })
+      .catch((error) => {
+        console.error('Logout failed:', error);
+        alert('Logout failed. Please try again.');
+      });
+  });
+</script>
+
+  </body>
+</html>
