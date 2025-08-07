@@ -3,7 +3,7 @@ function orderfunction(event) {
 
     const amount = 50000; // ₹500 in paise
 
-    axios.post('https://spendwise-livepoint.onrender.com/api/orderPremium', { amount })
+    axios.post('https://spendwise-live-2.onrender.com/api/orderPremium', { amount })
         .then(response => {
             const order = response.data;
 
@@ -22,7 +22,7 @@ function orderfunction(event) {
                 description: 'Payment for premium subscription',
                 order_id: order.id,  // Razorpay order ID from backend
                 handler: function (response) {
-                    axios.post('https://spendwise-livepoint.onrender.com/api/orderverifyPremium', {
+                    axios.post('https://spendwise-live-2.onrender.com/api/orderverifyPremium', {
                         paymentId: response.razorpay_payment_id,
                         orderId: response.razorpay_order_id,
                         signature: response.razorpay_signature
