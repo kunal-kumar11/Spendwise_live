@@ -119,7 +119,7 @@ const sendEmail = async (req, res) => {
     await user.save();
 
     // Reset link
-    const resetUrl = `https://spendwise-livepoint.onrender.com/reset-password/${resetToken}`;
+    const resetUrl = `https://spendwise-live-2.onrender.com/reset-password/${resetToken}`;
 
     // Nodemailer transporter
     const transporter = nodemailer.createTransport({
@@ -199,6 +199,3 @@ module.exports = {
   sendEmail,
   resetPassword
 };
-
-
-
