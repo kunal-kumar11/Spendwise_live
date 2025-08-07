@@ -11,7 +11,7 @@ function loginSubmit(event) {
 
   localStorage.setItem('expensesPerPage', 5);
 
-  axios.post('https://spendwise-livepoint.onrender.com/api/logindetails', obj)
+  axios.post('https://spendwise-live-2.onrender.com/api/logindetails', obj)
     .then((result) => {
       const message = result.data.message;
 
