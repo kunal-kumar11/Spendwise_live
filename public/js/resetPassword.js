@@ -5,7 +5,7 @@ function submitNewPassword(event) {
   event.preventDefault();
   const newPassword = document.getElementById('newPassword').value;
 
-  axios.post('https://spendwise-livepoint.onrender.com/api/reset-password', {
+  axios.post('https://spendwise-live-2.onrender.com/api/reset-password', {
     resetToken,
     newPassword
   })
