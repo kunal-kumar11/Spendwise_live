@@ -11,7 +11,7 @@ function solve(event) {
       userpassword
     };
   
-    axios.post('https://spendwise-livepoint.onrender.com/api/signupdetails', obj)
+    axios.post('https://spendwise-live-2.onrender.com/api/signupdetails', obj)
       .then((result) => {
         Toastify({
           text: "User signed up successfully!",
